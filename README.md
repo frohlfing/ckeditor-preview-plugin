@@ -2,4 +2,5 @@
 
 Advanced Preview for CKEditor
 
-Original work:
+This code is based on:
+<http://ckeditor.com/forums/CKEditor-3.x/CKEditor-and-serverpreview#comment-49442>

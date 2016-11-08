@@ -28,8 +28,6 @@ CKEDITOR.plugins.add('serverpreview', {
 				// popupWindow.focus();
 				// return true;
 
-				console.log(CKEDITOR.config.allowedContent);
-
 				var form = document.getElementById('serverPreviewForm');
 				if (!form) {
 					form = document.createElement('form');
@@ -39,13 +37,21 @@ CKEDITOR.plugins.add('serverpreview', {
 					form.style.display = 'none';
 					form.action = editor.config.serverPreviewUrl;
 					form.target = '_blank';
-					var input = document.createElement('input');
-					input.type = 'hidden';
-					input.name = 'content' ;
-					form.appendChild(input);
+
+					var input0 = document.createElement('input');
+					input0.type = 'hidden';
+					input0.name = 'content' ;
+					form.appendChild(input0);
+
+					var input1 = document.createElement('input');
+					input1.type = 'hidden';
+					input1.name = 'folder' ;
+					form.appendChild(input1);
+
 					document.body.appendChild(form);
 				}
 				form.elements[0].value = editor.getData();
+				form.elements[1].value = editor.element.getAttribute('data-folder');
 				form.submit();
 
 				return true;
